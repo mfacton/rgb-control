@@ -21,7 +21,7 @@ int main() {
     data.j_rainbow_1.cycle_or_led_num = SYNC_PER_LED_MODE_JRAINBOW_LED_COUNT;
     data.j_rainbow_1.speedAndBrightnessFlags = 0x29;
     data.j_rainbow_1.colorFlags = 0x80;
-    data.j_rainbow_1.cycle_or_led_num = 8;
+    data.j_rainbow_1.cycle_or_led_num = 9;
 
     data.on_board_led.effect = MSI_DIRECT_MODE;
     data.on_board_led.speedAndBrightnessFlags = 0x29 | SYNC_SETTING_JRGB;
@@ -43,12 +43,12 @@ int main() {
 
     struct timespec ts;
     ts.tv_sec = 0;
-    ts.tv_nsec = 100000000; //0.1
+    ts.tv_nsec = 50000000; //0.05
 
     int index = 0;
     while (1) {
         index++;
-        index %= 8;
+        index %= 9;
 
         memset(perLed.leds, 0, sizeof(perLed.leds));
         memset(perLed.leds+index+8, 255, sizeof(perLed.leds[0]));
