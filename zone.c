@@ -15,7 +15,7 @@ int main() {
     struct FeaturePacket_185 data;
     hid_get_feature_report(dev, (unsigned char*)&data, sizeof(data));
 
-    data.report_id = 0x52;
+    //data.report_id = 0x52;
     data.on_board_led.colorFlags = 0x80 | SYNC_SETTING_ONBOARD;
     // end config
 
