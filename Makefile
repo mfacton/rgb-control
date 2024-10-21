@@ -4,9 +4,9 @@ CFLAGS = -Wall -Wextra -std=c11
 
 LIBS = -lhidapi-libusb
 
-TARGETS = test.out sync.out
+TARGETS = test.out sync.out single.out
 
-SRCS = test.c sync.c
+SRCS = test.c sync.c single.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -17,6 +17,9 @@ test.out: test.o
 
 sync.out: sync.o
 	$(CC) $(CFLAGS) -o $@ sync.o $(LIBS)
+
+single.out: single.o
+	$(CC) $(CFLAGS) -o $@ single.o $(LIBS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
