@@ -19,7 +19,7 @@ int main() {
     data.on_board_led.colorFlags = 0x80 | SYNC_SETTING_ONBOARD;
     // end config
 
-    struct Color color1 = {255, 0, 0};
+    struct Color color1 = {0, 0, 255};
     struct Color color2 = {0, 255, 0};
     enum Mode mode = ModeColorShift;
     enum Brightness brightness = Brightness100;
