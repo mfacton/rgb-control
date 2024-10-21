@@ -6,6 +6,30 @@
 #include <string.h>
 #include <stdint.h>
 
+#define MSI_USB_PID_COMMON  0x0076
+
+#define NUMOF_PER_LED_MODE_LEDS     240
+
+#define SYNC_SETTING_ONBOARD        0x01
+#define SYNC_SETTING_JRAINBOW1      0x02
+#define SYNC_SETTING_JRAINBOW2      0x04
+#define SYNC_SETTING_JCORSAIR       0x08
+#define SYNC_SETTING_JPIPE1         0x10
+#define SYNC_SETTING_JPIPE2         0x20
+#define SYNC_SETTING_JRGB           0x80
+
+#define BITSET(val, bit, pos)       ((unsigned char)std::bitset<8>(val).set((pos), (bit)).to_ulong())
+
+#define SYNC_PER_LED_MODE_JRAINBOW_LED_COUNT     40
+#define SYNC_PER_LED_MODE_CORSAIR_LED_COUNT     120
+#define JRAINBOW1_MAX_LED_COUNT                 200
+#define JRAINBOW2_MAX_LED_COUNT                 240
+#define JCORSAIR_MAX_LED_COUNT                  240
+
+#define MSI_DIRECT_MODE                         0x25
+#define PER_LED_BASIC_SYNC_MODE                 (0x80 | SYNC_SETTING_ONBOARD | SYNC_SETTING_JPIPE1 | SYNC_SETTING_JPIPE2)
+#define PER_LED_FULL_SYNC_MODE                  (PER_LED_BASIC_SYNC_MODE | SYNC_SETTING_JRAINBOW1 | SYNC_SETTING_JRAINBOW2 | SYNC_SETTING_JCORSAIR)
+
 enum MSI_ZONE
 {
     MSI_ZONE_NONE                   = 0,
@@ -145,7 +169,7 @@ struct RainbowZoneData
 
 struct FeaturePacket_185
 {
-    const unsigned char report_id           ;//= 0x52; // Report ID
+    unsigned char report_id           ;//= 0x52; // Report ID
     struct ZoneData            j_rgb_1;                    // 1
     struct ZoneData            j_pipe_1;                   // 11
     struct ZoneData            j_pipe_2;                   // 21
@@ -390,10 +414,15 @@ int main() {
 
     printFeaturePacket(&data);
 
+    data.report_id = 0x52;
+    data.save_data = 0;
+    // setting direct mode
+    
+
     struct Color col;
     col.R = 25;
     col.G = 25;
-    col.B = 25;
+    col.B = 255;
 
     data.j_rainbow_1.effect = MSI_MODE_STATIC;
     data.j_rainbow_1.color = col;

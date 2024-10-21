@@ -24,3 +24,5 @@ LED addresses seem to be start at address 8
 
 Sync mode repeats every X cycles so the fans have the same color, however this doesn't
 work well for sharp rotating things because the mismatch in fan LED count (The 12 inch fan skips a cycle)
+
+Sadly, my motherboard doesn't support individual LEDs so I'm just going to stick to the modes

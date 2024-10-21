@@ -21,7 +21,7 @@ int main() {
     data.j_rainbow_1.cycle_or_led_num = SYNC_PER_LED_MODE_JRAINBOW_LED_COUNT;
     data.j_rainbow_1.speedAndBrightnessFlags = 0x29;
     data.j_rainbow_1.colorFlags = 0x80;
-    data.j_rainbow_1.cycle_or_led_num = 9;
+    data.j_rainbow_1.cycle_or_led_num = 62;
 
     data.on_board_led.effect = MSI_DIRECT_MODE;
     data.on_board_led.speedAndBrightnessFlags = 0x29 | SYNC_SETTING_JRGB;
