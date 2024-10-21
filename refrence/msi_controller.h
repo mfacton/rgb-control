@@ -86,11 +86,6 @@ public:
                         bool save
                         );
 
-    std::string     GetDeviceName();
-    std::string     GetDeviceLocation();
-    std::string     GetFWVersion();
-    std::string     GetSerial();
-
     void            SetDirectMode
                         (
                         bool mode
@@ -112,16 +107,6 @@ public:
 
     DIRECT_MODE     GetSupportedDirectMode() { return per_led_mode; }
 
-private:
-    bool            ReadSettings();
-    bool            ReadFwVersion();
-    void            ReadName();
-    ZoneData*       GetZoneData
-                        (
-                        FeaturePacket_185&  data_packet,
-                        MSI_ZONE            zone
-                        );
-    RainbowZoneData* GetRainbowZoneData(MSI_ZONE zone);
     Color*          GetPerLedZoneData
                         (
                         MSI_ZONE zone

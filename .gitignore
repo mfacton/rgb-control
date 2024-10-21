@@ -1,0 +1,6 @@
+### GCC ###
+*.o
+*.out
+
+### VSCode ###
+.vscode/

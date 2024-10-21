@@ -4,6 +4,7 @@
 #include <wchar.h>
 #include <locale.h>
 #include <string.h>
+#include <stdint.h>
 
 enum MSI_ZONE
 {
@@ -390,13 +391,13 @@ int main() {
     printFeaturePacket(&data);
 
     struct Color col;
-    col.R = 20;
-    col.G = 20;
-    col.B = 20;
+    col.R = 25;
+    col.G = 25;
+    col.B = 25;
 
     data.j_rainbow_1.effect = MSI_MODE_STATIC;
     data.j_rainbow_1.color = col;
-    data.j_rainbow_1.save_data = 1;
+    // data.save_data = 1;
     // data.j_rainbow_1.color2 = col;
 
     int len2 = hid_send_feature_report(dev, (unsigned char*)&data, sizeof(data));
