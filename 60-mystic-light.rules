@@ -1,0 +1,1 @@
+SUBSYSTEMS=="usb|hidraw", ATTRS{idVendor}=="1462", ATTRS{idProduct}=="7c95", TAG+="uaccess"

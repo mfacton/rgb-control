@@ -3,7 +3,10 @@ Control MSI Mystic Light Motherboard
 
 Addressable RGB fans
 
-### Config
+## Install udev rules
+./setup_udev.sh
+
+### Notes
 
 Motherboard B550M-VC Pro Wifi (MS-7C95)
 
