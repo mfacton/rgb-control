@@ -6,7 +6,7 @@ Addressable RGB fans
 ## Install udev rules
 ./setup_udev.sh
 
-### Notes
+## Notes
 
 Motherboard B550M-VC Pro Wifi (MS-7C95)
 
