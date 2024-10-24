@@ -22,7 +22,7 @@ int main() {
     struct Color color1 = {0, 0, 255};
     struct Color color2 = {0, 255, 0};
     enum Mode mode = ModeColorShift;
-    enum Brightness brightness = Brightness100;
+    enum Brightness brightness = Brightness10;
     enum Speed speed = SpeedMedium;
     bool rainbow = true;
     bool save = false;
